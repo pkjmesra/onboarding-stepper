@@ -1,0 +1,16 @@
+<mat-horizontal-stepper #stepper>
+  <mat-step *ngFor='let step of steps;'>
+    <app-step-page-wrapper [item]='step' ></app-step-page-wrapper>
+    <!-- <button mat-button matStepperNext>Next</button> -->
+  </mat-step>     
+</mat-horizontal-stepper>
+
+<!-- back/forward/skip handling option -->
+<div>
+  <button (click)="goBack(stepper)" type="button" [disabled]="stepper.selectedIndex === 0">Back</button>
+  <button (click)="goForward(stepper)" type="button"
+    [disabled]="stepper.selectedIndex === stepper.steps.length-1">Next</button>
+
+  <!-- using totalStepsCount -->
+  <!-- <button (click)="goForward(stepper)" type="button" [disabled]="stepper.selectedIndex === totalStepsCount-1">Next</button> -->
+</div>
